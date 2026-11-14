@@ -28,6 +28,8 @@ body {
 .landscape {
   z-index: -1;
   background:
+    url("./art/monas.png") 7% 80% / auto clamp(170px, 36vh, 410px) no-repeat,
+    url("./art/gwk.png") 95% 80% / auto clamp(145px, 29vh, 320px) no-repeat,
     url("./art/village.png") left bottom / auto clamp(200px, 34vh, 317px) repeat-x,
     url("./art/shore.png") 14% 73% / auto clamp(159px, 26vh, 260px) repeat-x,
     url("./art/mountains.png") 42% 60% / auto clamp(195px, 34vh, 321px) repeat-x;
@@ -59,7 +61,7 @@ a:hover, a:focus-visible { text-decoration: underline; }
 .portrait { display: block; width: 100%; height: auto; }
 .introduction h1 { margin: 0 0 6px; font: inherit; color: #fff; }
 .introduction p { margin: 0; }
-.introduction strong { font-weight: inherit; color: #d8c4f2; }
+.introduction strong { font-weight: inherit; color: #fff; }
 .line { overflow-wrap: anywhere; }
 .end { margin-top: 20px; font-size: 25px; text-align: center; }
 .end a { display: inline-block; padding: 3px 7px 5px; background: #000; }
@@ -68,4 +70,18 @@ a:hover, a:focus-visible { text-decoration: underline; }
   .about-page { width: calc(100% - 24px); margin-top: 32px; margin-bottom: 135px; }
   .dialogue { border-width: 3px; padding: 12px 13px; margin-bottom: 12px; }
   .introduction { grid-template-columns: 76px minmax(0, 1fr); gap: 10px; min-height: 0; }
+}
+
+@media (max-width: 1130px) {
+  .landscape {
+    position: absolute;
+    height: 180px;
+    background:
+      url("./art/monas.png") 24% bottom / auto 166px no-repeat,
+      url("./art/gwk.png") 78% bottom / auto 131px no-repeat,
+      url("./art/mountains.png") center bottom / auto 102px repeat-x,
+      #000;
+  }
+  #night { position: absolute; }
+  .about-page { margin-top: 180px; }
 }
