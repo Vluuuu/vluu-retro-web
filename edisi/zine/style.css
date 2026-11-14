@@ -30,10 +30,55 @@ a:hover { color: #274a42; }
   font: bold 11px/1.3 "Courier New",monospace;
 }
 .index button::before,.guestbook button::before { content: ""; position: absolute; inset: 2px; border: 1px dashed #a06353; pointer-events: none; }
-.index button { margin-left: auto; }
+.index #lamp-toggle { margin-left: auto; }
 .guestbook button { transform: rotate(-2deg); }
 :is(.index button,.guestbook button):hover { background: #ffdda4; }
 :is(.index button,.guestbook button):active,.index button[aria-pressed="false"] { box-shadow: none; transform: translate(1px,1px); }
+.music {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 12px;
+  padding: 5px 12px;
+  border-bottom: 1px dashed #a57461;
+  background: #e7c994;
+  color: #613540;
+  font: 12px/1.4 "Courier New", monospace;
+}
+.music p { margin: 0; }
+#music-title { font-weight: bold; }
+#music-title span { color: #835449; }
+.music audio { height: 34px; max-width: 100%; }
+.music-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; }
+.music-controls button {
+  padding: 2px 7px;
+  border: 2px outset #b88c76;
+  background: #f3dcad;
+  color: #633641;
+  font-weight: bold;
+}
+.music-controls button:active { border-style: inset; }
+.music-controls input { width: 68px; margin: 0; accent-color: #813f4b; }
+.music-meter { display: inline-flex; gap: 2px; align-items: end; height: 14px; }
+.music-meter i { width: 3px; height: 3px; background: #905147; }
+[data-music="playing"] .music-meter i { animation: music-pulse .72s steps(3) infinite alternate; }
+[data-music="playing"] .music-meter i:nth-child(2) { animation-delay: -.46s; }
+[data-music="playing"] .music-meter i:nth-child(3) { animation-delay: -.19s; }
+[data-music="playing"] .music-meter i:nth-child(4) { animation-delay: -.31s; }
+@keyframes music-pulse { to { height: 13px; } }
+[data-lamp="night"] {
+  background-color: #382538;
+  background-image: linear-gradient(#27192cbb, #27192cbb), url("../assets/zine-cloth.png");
+}
+[data-lamp="night"] .sheet {
+  background: #d4b580 url("../assets/zine-paper.png");
+  background-blend-mode: multiply;
+  border-color: #ae7763;
+  box-shadow: 5px 7px #241624, 0 0 44px #d3975c55;
+}
+[data-lamp="night"] .mast { background-color: #d9b17c; background-blend-mode: multiply; }
+[data-lamp="night"] .letter { background: #f3ddb3; }
+[data-lamp="night"] .mast-star { color: #743341; }
 .body { display: grid; grid-template-columns: minmax(0,1fr) 208px; gap: 12px; padding: 16px; }
 .body > * { min-width: 0; }
 .letter {
@@ -78,15 +123,29 @@ p { margin: 0 0 9px; }
 .scrap p { margin: 0; }
 .scrap.gobi { --scrap-paper: #f1ddab; --tilt: -2deg; grid-column: span 4; border: 0; padding: 8px 8px 12px; }
 .scrap.gobi::before { left: 13%; }
-.scrap.gobi img { float: left; width: 36%; height: auto; margin: 0 7px 4px 0; border: 3px double #8c665c; }
+.project-print { margin: 5px 0; }
+.project-print a { display: block; }
+.scrap .project-print img {
+  display: block;
+  float: none;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 1px solid #8e6d5b;
+  image-rendering: auto;
+}
+.project-print figcaption { margin-top: 3px; font: 10px/1.35 "Courier New", monospace; }
+.project-links { padding-top: 3px; }
+.scrap .project-print a:hover img { border-color: #71353c; }
+.scrap.gobi .project-print { float: left; width: 45%; margin: 0 9px 3px 0; }
+.scrap.gobi .project-print img { border: 3px double #8c665c; }
 .scrap.gobi::after { content: ""; display: block; clear: both; }
 .scrap.gobi h3 { font-size: 20px; }
 .scrap.kalarya { --scrap-paper: #e7dfb0; --tilt: 3deg; grid-column: span 2; margin-top: 13px; border: 0; border-left: 2px solid #d7836f; background: repeating-linear-gradient(0deg,#e7dfb0 0 13px,#b8bb87 13px 14px); }
-.scrap.kalarya img { float: none; display: block; width: 56px; height: auto; }
 .scrap.pisgo { --scrap-paper: #f1d187; --tilt: 1deg; grid-column: span 2; border: 1px dotted #876b46; border-inline: 3px double #876b46; }
-.scrap.pisgo img { float: none; display: block; }
 .scrap.karaga { --scrap-paper: #ebc8c3; --tilt: -1deg; grid-column: span 4; margin-top: 5px; padding: 10px 8px 10px 11px; border: 1px solid #a87e78; border-top: 6px solid #a06a6f; }
-.scrap.karaga img { float: right; margin: 0 0 2px 6px; border: 3px double #7d5963; }
+.scrap.karaga .project-print { float: right; width: 31%; min-width: 64px; margin: 0 0 2px 8px; }
+.scrap.karaga::after { content: ""; display: block; clear: both; }
 .scrap.jedain { --scrap-paper: #d3d0a5; --tilt: -1deg; grid-column: span 4; padding-block: 9px; border: 0; border-block: 2px dotted #829268; }
 .scrap.lock { --scrap-paper: #e1cdca; --tilt: 2deg; grid-column: span 2; border: 1px solid #a47c7a; border-bottom: 3px double #a47c7a; }
 .scrap.lock img { float: none; display: block; }
@@ -98,17 +157,16 @@ p { margin: 0 0 9px; }
 .note summary { text-decoration: underline; color: #62404a; font-weight: 700; }
 .note p { margin: 4px 0 3px; }
 .linkwall { margin-top: 15px; }
-.linkwall-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 9px; }
-.linkwall-heading h2 { margin-bottom: 5px; }
-.linkwall-heading span { color: #67443d; font: italic 11px/1.4 "Courier New", monospace; }
+.linkwall h2 { margin-bottom: 5px; }
 .badge-row {
   overflow-x: auto;
   overflow-y: hidden;
-  background: #241b20;
-  border-block: 1px solid #60404a;
+  background: #e4c495 url("../assets/zine-paper.png");
+  background-blend-mode: multiply;
+  border-block: 1px dashed #9d695e;
   margin-bottom: 3px;
   scrollbar-width: thin;
-  scrollbar-color: #80616a #241b20;
+  scrollbar-color: #985e5e #dec195;
 }
 .badge-track {
   display: inline-flex;
@@ -121,9 +179,8 @@ p { margin: 0 0 9px; }
 }
 .badge-track a, .badge-track img, .linkwall-links img { display: block; }
 .badge-track a { display: grid; align-items: center; min-height: 40px; }
-.badge-track a:focus-visible { outline: 1px dashed #ffebb3; outline-offset: -1px; }
+.badge-track a:focus-visible { outline: 2px dashed #683a45; outline-offset: 0; }
 .badge-track a:hover img { filter: brightness(1.12); }
-.badge-track img[alt="Atelier MW"] { image-rendering: auto; }
 .linkwall-links { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; margin-top: 7px; font: 11px/1.45 "Courier New", monospace; }
 @media (hover: hover) and (pointer: fine) {
   [data-motion="on"] .badge-row:not(:focus-within) { scrollbar-width: none; }
@@ -150,7 +207,8 @@ footer { border-top: 3px double #ac7662; display: flex; align-items: center; jus
   .postmark img { width: 64px; }
   .index { gap: 3px 8px; font-size: 11px; padding-inline: 6px; }
   .index :is(a,button) { display: inline-flex; align-items: center; min-height: 44px; }
-  .index button { margin-left: 0; }
+  .index #lamp-toggle { margin-left: 0; }
+  .music-controls button { min-height: 36px; }
   .body { grid-template-columns: minmax(0,1fr); padding: 9px; }
   .margin { padding: 0; }
   .note { transform: none; }
@@ -165,5 +223,5 @@ footer { border-top: 3px double #ac7662; display: flex; align-items: center; jus
   .scrap { grid-column: span 1; }
   .scrap.gobi { grid-column: span 2; }
   .scrap.kalarya,.scrap.pisgo,.scrap.karaga,.scrap.jedain,.scrap.lock { grid-column: span 1; margin-top: 0; }
-  .scrap:not(.gobi) img { float: none; display: block; margin: 0 0 4px; }
+  .scrap.karaga .project-print { float: none; width: 58%; margin: 4px auto; }
 }
