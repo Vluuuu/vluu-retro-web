@@ -97,15 +97,37 @@ p { margin: 0 0 9px; }
 .note details { font-size: 13px; padding: 3px 0; }
 .note summary { text-decoration: underline; color: #62404a; font-weight: 700; }
 .note p { margin: 4px 0 3px; }
-.linkwall { display: flex; align-items: start; flex-wrap: wrap; gap: 4px; margin-top: 15px; }
-.linkwall h2 { width: 100%; margin-bottom: 3px; }
-.mini-button { position: relative; display: grid; align-items: center; width: 88px; min-height: 31px; color: #ffe1ae; font: bold 9px/1 "Courier New",monospace; text-decoration: none; text-shadow: 1px 1px #30242d; }
-.mini-button > * { grid-area: 1/1; }
-.mini-button img { display: block; }
-.mini-button span { padding: 0 5px 1px 26px; text-align: center; text-transform: uppercase; }
-.mini-button:hover { color: white; text-decoration: underline; }
-.mini-button:active img { filter: brightness(.83); }
-.badge img { display: block; }
+.linkwall { margin-top: 15px; }
+.linkwall-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 9px; }
+.linkwall-heading h2 { margin-bottom: 5px; }
+.linkwall-heading span { color: #67443d; font: italic 11px/1.4 "Courier New", monospace; }
+.badge-row {
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #241b20;
+  border-block: 1px solid #60404a;
+  margin-bottom: 3px;
+  scrollbar-width: thin;
+  scrollbar-color: #80616a #241b20;
+}
+.badge-track {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  min-height: 40px;
+  gap: 4px;
+  padding-inline: 3px;
+  vertical-align: top;
+}
+.badge-track a, .badge-track img, .linkwall-links img { display: block; }
+.badge-track a { display: grid; align-items: center; min-height: 40px; }
+.badge-track a:focus-visible { outline: 1px dashed #ffebb3; outline-offset: -1px; }
+.badge-track a:hover img { filter: brightness(1.12); }
+.badge-track img[alt="Atelier MW"] { image-rendering: auto; }
+.linkwall-links { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; margin-top: 7px; font: 11px/1.45 "Courier New", monospace; }
+@media (hover: hover) and (pointer: fine) {
+  [data-motion="on"] .badge-row:not(:focus-within) { scrollbar-width: none; }
+}
 .paperplane { display: flex; align-items: center; gap: 4px; width: fit-content; margin: 12px 0 0 2px; font: 12px/1.3 "Courier New",monospace; }
 .paperplane img { border: 1px dashed #ab7d67; }
 .guestbook { grid-column: 1/-1; border-top: 3px double #9a6757; padding: 8px 3px 0; }
@@ -135,7 +157,8 @@ footer { border-top: 3px double #ac7662; display: flex; align-items: center; jus
   .guestbook form { display: grid; }
   .guestbook :is(input,textarea,button) { min-height: 44px; }
   .guestbook button { justify-self: start; }
-  .linkwall :is(.mini-button,.badge) { display: grid; align-items: center; min-height: 44px; }
+  .badge-track, .badge-track a, .linkwall-links > a { min-height: 44px; }
+  .linkwall-links > a { display: grid; align-items: center; }
 }
 @media (max-width: 430px) {
   .scrapbook { grid-template-columns: repeat(2,minmax(0,1fr)); }

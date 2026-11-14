@@ -46,3 +46,31 @@ form.addEventListener("submit", event => {
   displayNotes();
   form.reset();
 });
+
+const badgeRows = [...document.querySelectorAll(".badge-row")];
+const badgePointer = matchMedia("(hover: hover) and (pointer: fine)");
+const badgeMotion = document.documentElement;
+let badgeTimer;
+
+function updateBadgeMotion() {
+  clearInterval(badgeTimer);
+  if (badgeMotion.dataset.motion !== "on" || !badgePointer.matches || document.hidden) return;
+
+  badgeTimer = setInterval(() => {
+    for (const row of badgeRows) {
+      if (row.matches(":hover, :focus-within")) continue;
+
+      const end = row.scrollWidth - row.clientWidth;
+      if (end <= 0) continue;
+
+      const direction = row.dir === "rtl" ? -1 : 1;
+      const offset = Math.abs(row.scrollLeft);
+      row.scrollLeft = direction * (offset >= end - 1 ? 0 : offset + 1);
+    }
+  }, 38);
+}
+
+new MutationObserver(updateBadgeMotion).observe(badgeMotion, { attributeFilter: ["data-motion"] });
+badgePointer.addEventListener("change", updateBadgeMotion);
+document.addEventListener("visibilitychange", updateBadgeMotion);
+setTimeout(updateBadgeMotion, 800);
