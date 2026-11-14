@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="./style.css">
   <script src="../motion.js" defer></script>
+  <script src="./extras.js" defer></script>
   <script src="./zine.js" defer></script>
 </head>
 <body>
@@ -19,20 +20,17 @@
       <figure class="postmark"><img src="../assets/postcard.png" data-gif="../assets/postcard.gif" width="92" height="68" alt="Kartu pos piksel dari Pulau Gobi"></figure>
     </header>
     <nav class="index" aria-label="Daftar isi">
-      <a href="#isi">Halo</a><a href="#proyek">Proyek</a><a href="#catatan">Catatan</a><a href="#buku-tamu">Buku tamu</a><a href="../">Edisi lain</a>
+      <a href="./about.html">Tentang aku</a><a href="#proyek">Proyek</a><a href="#catatan">Catatan</a><a href="#buku-tamu">Buku tamu</a><a href="../">Edisi lain</a>
       <button type="button" id="lamp-toggle" aria-pressed="false" hidden>☾ Lampu malam</button>
       <button type="button" data-motion-toggle hidden>Jeda animasi</button>
     </nav>
     <section class="music" aria-labelledby="music-title">
       <p id="music-title"><span aria-hidden="true">♫</span> Di Meja Tulis</p>
-      <audio id="zine-audio" aria-labelledby="music-title" controls loop preload="none" src="./di-meja-tulis.mp3"><a href="./di-meja-tulis.mp3">Buka MP3</a></audio>
-      <div class="music-controls" hidden>
-        <button id="music-toggle" type="button">▶ Putar</button>
-        <label for="music-volume">Volume</label>
-        <input id="music-volume" type="range" min="0" max="1" step="0.05" value="0.3">
-        <span class="music-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      </div>
-      <p id="music-error" role="status" hidden>Audio gagal diputar. <a href="./di-meja-tulis.mp3">Buka MP3</a></p>
+      <audio id="zine-audio" loop preload="none" src="./di-meja-tulis.mp3"></audio>
+      <span class="music-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <button id="music-toggle" type="button" aria-pressed="false" hidden>Bisukan</button>
+      <a id="music-error" href="./di-meja-tulis.mp3" hidden>Buka MP3</a>
+      <noscript><a href="./di-meja-tulis.mp3">Buka MP3</a></noscript>
     </section>
     <div class="body">
       <main id="isi">
@@ -40,7 +38,7 @@
           <h2>Halo, aku Dewo!</h2>
           <p>Nama lengkapku Dewo Adjie Fadhillah, tapi di internet aku biasa pakai <strong>VLUU</strong>. Aku tinggal di Malang dan biasa bikin aplikasi web. Kalau lagi pindah tab, bisa jadi aku lagi di Figma, nyoba ESP32, atau ngurus Pulau Gobi.</p>
           <p>Kalau mau lihat kodeku, mampir ke <a href="https://github.com/Vluuuu">GitHub</a>. Aku juga ada di <a href="https://www.instagram.com/dewhoaf/">Instagram</a>.</p>
-          <p class="signature">– Dewo</p>
+          <p class="signature">– Dewo <a href="./about.html">Kenalan lebih lanjut ↗</a></p>
         </section>
         <div class="stitches" aria-hidden="true"><img src="../assets/zine-stitch.png" data-gif="../assets/zine-stitch.gif" width="96" height="24" alt=""></div>
         <section class="clippings" id="proyek">
@@ -87,18 +85,18 @@
           <h2 id="linkwall-heading">Jalan-jalan</h2>
           <div class="badge-row" role="region" aria-label="Repo proyek" tabindex="0">
             <div class="badge-track" dir="ltr">
-              <a href="https://github.com/Vluuuu/pulau-gobi" title="Repositori Pulau Gobi"><img src="./badges/vluu-pulau-gobi.png" width="88" height="31" alt="Repositori Pulau Gobi"></a>
-              <a href="https://github.com/Vluuuu/JedaIn" title="Repositori JedaIn"><img src="./badges/vluu-jedain.png" width="88" height="31" alt="Repositori JedaIn"></a>
-              <a href="https://github.com/Vluuuu/pisgo" title="Repositori PisGo"><img src="./badges/vluu-pisgo.png" width="88" height="31" alt="Repositori PisGo"></a>
-              <a href="https://github.com/Vluuuu" title="Profil GitHub Vluuuu"><img src="./badges/vluu-github.png" width="88" height="31" alt="Profil GitHub Vluuuu"></a>
+              <a href="https://github.com/Vluuuu/pulau-gobi" title="Repositori Pulau Gobi"><img src="./badges/vluu-pulau-gobi.png" data-gif="./badges/vluu-pulau-gobi.gif" width="88" height="31" alt="Repositori Pulau Gobi"></a>
+              <a href="https://github.com/Vluuuu/JedaIn" title="Repositori JedaIn"><img src="./badges/vluu-jedain.png" data-gif="./badges/vluu-jedain.gif" width="88" height="31" alt="Repositori JedaIn"></a>
+              <a href="https://github.com/Vluuuu/pisgo" title="Repositori PisGo"><img src="./badges/vluu-pisgo.png" data-gif="./badges/vluu-pisgo.gif" width="88" height="31" alt="Repositori PisGo"></a>
+              <a href="https://github.com/Vluuuu" title="Profil GitHub Vluuuu"><img src="./badges/vluu-github.png" data-gif="./badges/vluu-github.gif" width="88" height="31" alt="Profil GitHub Vluuuu"></a>
             </div>
           </div>
           <div class="badge-row" dir="rtl" role="region" aria-label="Situs proyek" tabindex="0">
             <div class="badge-track" dir="ltr">
-              <a href="https://bintang-2-d-web.vercel.app/" title="Situs Bintang 2D"><img src="./badges/vluu-bintang-2d.png" width="88" height="31" alt="Situs Bintang 2D"></a>
-              <a href="https://goheals.vercel.app/" title="Situs GO-Heal"><img src="./badges/vluu-go-heal.png" width="88" height="31" alt="Situs GO-Heal"></a>
-              <a href="https://avl-tree-visualizer.dewoxxd6.workers.dev/" title="Demo AVL Tree Visualizer"><img src="./badges/vluu-avl-tree.png" width="88" height="31" alt="Demo AVL Tree Visualizer"></a>
-              <a href="https://kalarya.web.id/" title="Situs KALARYA"><img src="./badges/vluu-kalarya.png" width="88" height="31" alt="Situs KALARYA"></a>
+              <a href="https://bintang-2-d-web.vercel.app/" title="Situs Bintang 2D"><img src="./badges/vluu-bintang-2d.png" data-gif="./badges/vluu-bintang-2d.gif" width="88" height="31" alt="Situs Bintang 2D"></a>
+              <a href="https://goheals.vercel.app/" title="Situs GO-Heal"><img src="./badges/vluu-go-heal.png" data-gif="./badges/vluu-go-heal.gif" width="88" height="31" alt="Situs GO-Heal"></a>
+              <a href="https://avl-tree-visualizer.dewoxxd6.workers.dev/" title="Demo AVL Tree Visualizer"><img src="./badges/vluu-avl-tree.png" data-gif="./badges/vluu-avl-tree.gif" width="88" height="31" alt="Demo AVL Tree Visualizer"></a>
+              <a href="https://kalarya.web.id/" title="Situs KALARYA"><img src="./badges/vluu-kalarya.png" data-gif="./badges/vluu-kalarya.gif" width="88" height="31" alt="Situs KALARYA"></a>
             </div>
           </div>
           <div class="linkwall-links">

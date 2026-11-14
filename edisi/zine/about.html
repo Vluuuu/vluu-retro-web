@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id" data-motion="off">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kenalan dengan Dewo Adjie Fadhillah, alias VLUU, dari Malang.">
+  <title>Tentang Dewo · Web Kecil</title>
+  <link rel="icon" href="../assets/paper-icon.png">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../motion.js" defer></script>
+  <script src="./extras.js" defer></script>
+</head>
+<body class="about">
+  <a class="skip" href="#profil">Lewati ke profil</a>
+  <div class="sheet">
+    <nav class="index" aria-label="Navigasi">
+      <a href="./">← Web Kecil</a>
+      <a href="./#proyek">Proyek</a>
+      <button type="button" id="lamp-toggle" aria-pressed="false" hidden>☾ Lampu malam</button>
+      <button type="button" data-motion-toggle hidden>Jeda animasi</button>
+    </nav>
+    <section class="music" aria-labelledby="music-title">
+      <p id="music-title"><span aria-hidden="true">♫</span> Di Meja Tulis</p>
+      <audio id="zine-audio" loop preload="none" src="./di-meja-tulis.mp3"></audio>
+      <span class="music-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <button id="music-toggle" type="button" aria-pressed="false" hidden>Bisukan</button>
+      <a id="music-error" href="./di-meja-tulis.mp3" hidden>Buka MP3</a>
+      <noscript><a href="./di-meja-tulis.mp3">Buka MP3</a></noscript>
+    </section>
+    <main id="profil" class="about-content">
+      <header class="about-header">
+        <h1>Tentang aku</h1>
+        <p>Dewo Adjie Fadhillah · VLUU · Malang</p>
+      </header>
+      <img class="about-desk" src="./about-desk.png" data-gif="./about-desk.gif" width="320" height="144" alt="Ilustrasi pixel meja tulis, komputer CRT, dan lampu dengan jendela yang menghadap bulan">
+      <div class="about-notes">
+        <p>Halo, aku <strong>Dewo</strong>! Di internet aku pakai nama <strong>VLUU</strong>. Aku tinggal di Malang. Biasanya aku bikin aplikasi web, ngulik antarmuka di Figma, atau nyoba rangkaian ESP32.</p>
+        <p>Di <a href="./#pulau-gobi">Pulau Gobi</a>, aku bikin serial 3D low-poly. Aku suka mikirin apa yang terjadi setelah satu episode selesai. Kalau lampu jalan atau lapak baru masuk ke pulau, benda itu bisa muncul lagi di episode berikutnya.</p>
+        <p>Aku bikin <a href="./#kalarya">KALARYA</a> untuk nyatet tugas dan kerja bareng. Ada juga <a href="./#pisgo">PisGo</a> buat nyusun rencana panen pisang, dan <a href="./#jedain">JedaIn</a>, proyek wisata wellness yang dapat Juara Harapan 1 di HOLOGY 9.0.</p>
+        <p class="about-contacts"><a href="https://github.com/Vluuuu">GitHub ↗</a> · <a href="https://www.instagram.com/dewhoaf/">Instagram ↗</a> · <a href="./#buku-tamu">Buku tamu ↗</a></p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
