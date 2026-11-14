@@ -13,7 +13,7 @@
     return image;
   });
   const root = document.documentElement;
-  const twinkles = ["#253241", "#395664", "#65a6aa", "#a5caca"];
+  const twinkles = ["#283039", "#47525a", "#8ba6aa", "#d9c89b"];
   const stars = Array.from({ length: 90 }, (_, index) => ({
     x: ((index * 127 + 19) % 881) / 881,
     y: ((index * 89 + 47) % 509) / 509,
@@ -56,10 +56,21 @@
 
     const scale = Math.max(.76, Math.min(1.18, height / 445));
     const scroll = Math.min(window.scrollY / 20, height * .12);
-    tile(layers[0], width, 73 + time * 6, height * .6 - scroll * .35 + pointer, scale);
-    tile(layers[1], width, 118 + time * 11, height * .65 - scroll * .5 + pointer * 2, scale);
-    tile(layers[2], width, time * 24, height * .66 - scroll * .45 + pointer * 3, scale);
-    tile(layers[3], width, 167 + time * 38, height * .82 - scroll * .2 + pointer * 4, scale);
+    tile(layers[0], width, 95 + time * 4, height * .57 - scroll * .35 + pointer, scale);
+    tile(layers[1], width, 46 + time * 8, height * .7 - scroll * .5 + pointer * 2, scale);
+    tile(layers[2], width, -32 + time * 15, height * .59 - scroll * .45 + pointer * 3, scale);
+    tile(layers[3], width, 137 + time * 24, height * .84 - scroll * .2 + pointer * 4, scale);
+
+    for (let i = 0; i < 22; i++) {
+      const drift = ((i * 97 + time * (7 + i % 4)) % width + width) % width;
+      const x = Math.floor(drift);
+      const y = Math.floor(height * (.72 + (i * 19 % 25) / 100) + 3 * Math.sin(time * .8 + i));
+      const glow = Math.sin(time * 2 + i * 1.9);
+      if (glow > .05) {
+        ctx.fillStyle = glow > .78 ? "#e7bd6f" : "#817650";
+        ctx.fillRect(x, y, 1, 1);
+      }
+    }
   }
 
   function resize() {
@@ -90,7 +101,6 @@
   }
 
   // Keep the CSS landscape visible until all four layers are available.
-  canvas.hidden = true;
   Promise.all(layers.map((image) => image.decode())).then(() => {
     canvas.hidden = false;
     resize();

@@ -9,23 +9,23 @@
   <link rel="icon" href="./art/vluu.png">
   <link rel="stylesheet" href="../edisi/shared.css">
   <link rel="stylesheet" href="./style.css">
-  <script src="../edisi/motion.js" defer></script>
+  <script src="./page.js" defer></script>
   <script src="./landscape.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#profil">Lewati ke profil</a>
   <div class="landscape" aria-hidden="true">
-    <canvas id="night"></canvas>
+    <canvas id="night" hidden></canvas>
   </div>
+  <audio id="about-music" loop preload="none" src="../edisi/zine/di-meja-tulis.mp3"></audio>
 
   <main class="about-page">
     <nav class="dialogue navigation" id="atas" aria-label="Navigasi">
       <a href="../">&lt;&lt;&lt; kembali</a>
-      <button type="button" data-motion-toggle hidden>Jeda animasi</button>
     </nav>
 
     <section class="dialogue introduction" id="profil" aria-labelledby="nama">
-      <img class="portrait" src="./art/vluu.png" data-gif="./art/vluu.gif" width="80" height="88" alt="Karakter pixel VLUU dengan jaket ungu dan syal hijau">
+      <img class="portrait" src="./art/vluu.png" data-gif="./art/vluu.gif" width="80" height="88" alt="Karakter pixel VLUU hitam-putih">
       <div>
         <h1 id="nama"><span aria-hidden="true">* </span>halo, aku dewo!</h1>
         <p>Nama lengkapku Dewo Adjie Fadhillah. Aku dari Malang dan biasa pakai nama <strong>VLUU</strong> di internet.</p>

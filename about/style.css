@@ -48,23 +48,6 @@ body {
 a { color: #fff136; text-decoration: none; }
 a:hover, a:focus-visible { text-decoration: underline; }
 
-.navigation {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5px 14px;
-}
-
-.navigation button {
-  border: 1px solid #777780;
-  color: #c2abdc;
-  background: #0b0811;
-  padding: 4px 7px;
-  font: 22px/1 VT323, monospace;
-}
-.navigation button:hover { color: #fff136; border-color: currentColor; }
-
 .introduction {
   display: grid;
   grid-template-columns: clamp(106px, 12vw, 160px) minmax(0, 1fr);
@@ -85,5 +68,4 @@ a:hover, a:focus-visible { text-decoration: underline; }
   .about-page { width: calc(100% - 24px); margin-top: 32px; margin-bottom: 135px; }
   .dialogue { border-width: 3px; padding: 12px 13px; margin-bottom: 12px; }
   .introduction { grid-template-columns: 76px minmax(0, 1fr); gap: 10px; min-height: 0; }
-  .navigation button { font-size: 19px; min-height: 33px; }
 }
