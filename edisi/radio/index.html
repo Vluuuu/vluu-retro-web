@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id" data-motion="off" data-signal="idle" data-channel="gobi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radio Gobi — VLUU</title>
+  <link rel="icon" href="../assets/radio-icon.png">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../motion.js" defer></script>
+  <script src="./radio.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#isi">Lewati ke isi</a>
+  <div class="station">
+    <header class="masthead">
+      <img src="../assets/radio-icon.png" width="32" height="32" alt="">
+      <div><h1>RADIO GOBI</h1><p>Siaran dari meja kerja VLUU</p></div>
+      <div class="dial-decoration" aria-hidden="true"><img src="../assets/radio-dial.png" data-gif="../assets/radio-dial.gif" width="68" height="29" alt=""><i></i><i></i><i></i></div>
+    </header>
+    <nav aria-label="Navigasi Radio Gobi">
+      <a href="#pemutar">Pemutar</a><a href="#proyek">Arsip</a><a href="#tentang">Operator</a><a href="../">Edisi lain</a><button type="button" data-motion-toggle hidden>Jeda animasi</button>
+    </nav>
+    <main id="isi">
+      <section class="receiver" id="pemutar" aria-labelledby="receiver-heading">
+        <i class="screw screw-left" aria-hidden="true"></i><i class="screw screw-right" aria-hidden="true"></i>
+        <h2 id="receiver-heading">Penerima chiptune</h2>
+        <div class="receiver-grid">
+          <div class="tuner">
+            <div class="readout"><div><span class="freq" id="frequency">88.7</span><span class="unit"> MHz</span></div><span id="player-status" role="status">Siap diputar</span></div>
+            <div class="scale" aria-hidden="true"><span>88</span><span>92</span><span>96</span><span>100</span><span>104</span><span>108</span><i></i></div>
+            <div class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="transport">
+              <audio id="broadcast" controls loop preload="none" src="../assets/sinyal-gobi.wav"></audio>
+              <div class="custom-transport" role="group" aria-label="Kontrol pemutar" hidden>
+                <button type="button" id="play" aria-label="▶ Putar"><span class="transport-icon" aria-hidden="true"></span><span id="play-label">Putar</span></button>
+                <button type="button" id="stop" aria-label="■ Stop"><span class="transport-icon" aria-hidden="true"></span><span>Stop</span></button>
+                <label class="volume">Volume <input id="volume" type="range" min="0" max="1" step=".05" value=".35"></label>
+              </div>
+            </div>
+          </div>
+          <div class="speaker">
+            <div class="speaker-grille" aria-hidden="true"></div>
+            <img class="cassette" src="../assets/cassette.png" data-gif="../assets/cassette.gif" width="103" height="49" alt="Kaset chiptune" data-signal-gif>
+            <img class="on-air" src="../assets/on-air.png" data-gif="../assets/on-air.gif" width="75" height="22" alt="On air">
+          </div>
+        </div>
+        <div class="presets" role="group" aria-label="Kanal chiptune" hidden>
+          <button type="button" data-channel="gobi" aria-pressed="true"><span>1</span> Sinyal Gobi</button>
+          <button type="button" data-channel="desk" aria-pressed="false"><span>2</span> Meja Kerja</button>
+          <button type="button" data-channel="night" aria-pressed="false"><span>3</span> Surat Malam</button>
+        </div>
+      </section>
+      <figure class="harbor" aria-label="Pesisir Gobi pada malam hari" role="img">
+        <div class="sky-grain" aria-hidden="true"></div><div class="lighthouse" aria-hidden="true"></div>
+        <div class="route" aria-hidden="true"><i></i></div>
+        <figcaption>Pulau Gobi, selepas gelap</figcaption>
+      </figure>
+      <div class="notes-grid">
+        <section class="archive" id="proyek">
+          <h2>Arsip siaran</h2>
+          <div class="broadcast-log">
+            <section aria-label="Sisi A">
+              <h3>SISI A</h3>
+              <details open><summary><span>A1</span> Pulau Gobi</summary><p>Serial animasi low-poly dengan pulau yang tumbuh tiap episode.</p></details>
+              <details><summary><span>A2</span> KALARYA</summary><p>Ruang kerja untuk tugas, proyek, dan kolaborasi.</p></details>
+              <details><summary><span>A3</span> PisGo</summary><p>AI untuk menilai kematangan pisang Cavendish dan merencanakan panen.</p></details>
+            </section>
+            <section aria-label="Sisi B">
+              <h3>SISI B</h3>
+              <details><summary><span>B1</span> Karaga</summary><p>Desain dashboard dan splash screen aplikasi pencatatan keuangan.</p></details>
+              <details><summary><span>B2</span> JedaIn</summary><p>Wisata wellness, Juara Harapan 1 di HOLOGY 9.0.</p></details>
+              <details><summary><span>B3</span> Smart Door Lock</summary><p>Eksperimen ESP32 dengan kunci fisik.</p></details>
+            </section>
+          </div>
+        </section>
+        <aside class="operator" id="tentang">
+          <h2>Operator</h2>
+          <p>Dewo Adjie Fadhillah, alias <strong>VLUU</strong>. Dari Malang. Sering bolak-balik antara editor kode, Figma, dan Remotion.</p>
+          <p><a href="https://github.com/Vluuuu">GitHub</a> · <a href="https://www.instagram.com/dewhoaf/">Instagram</a></p>
+          <details><summary>Catatan pulau</summary><p>Setiap episode meninggalkan perubahan di Pulau Gobi. Lampu jalan dan lapak tetap ada di cerita berikutnya.</p></details>
+          <div class="outside"><a href="https://rm94.neocities.org/">RetroMaster94 ↗</a><a href="https://dimden.dev/">Dimden ↗</a></div>
+        </aside>
+      </div>
+    </main>
+    <footer><a href="../assets/radio-badge.gif" download><img src="../assets/radio-badge.png" data-gif="../assets/radio-badge.gif" width="88" height="31" alt="Unduh button Radio Gobi"></a><a href="../">Tiga edisi VLUU ↗</a></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+body {
+  --ink: #e1ccc1;
+  --link: #f1a3b9;
+  --gold: #e8c797;
+  --muted: #bba2a7;
+  --black: #050405;
+  position: relative;
+  background: var(--black);
+  color: var(--ink);
+  font: 16px/1.52 var(--mono);
+}
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, #050405b0 12%, var(--black) 27% 73%, #050405b0 88%, transparent),
+    repeating-linear-gradient(0deg, #1b0710 0 1px, #220e16 1px 2px, #09070d 2px 3px, #121220 3px 4px);
+}
+p { margin: 0 0 .67em; }
+a { color: var(--link); }
+a:hover, a:focus-visible { color: #ffdf9e; }
+button {
+  border: 0;
+  padding: 2px 0;
+  color: var(--link);
+  background: transparent;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+button:hover, button:focus-visible { color: #ffdf9e; }
+.mast {
+  width: min(calc(100% - 40px), 820px);
+  margin: 0 auto;
+  padding: 27px 0 0;
+  text-align: center;
+}
+.mast h1 {
+  display: grid;
+  position: relative;
+  justify-items: center;
+  width: min(100%, 372px);
+  padding: 8px 16px 9px;
+  margin: 0 auto;
+  color: var(--gold);
+  font: 25px/1.35 var(--mono);
+  letter-spacing: .22em;
+}
+.mast h1 [lang="ja"] { font-size: 41px; line-height: 1.1; letter-spacing: .22em; padding-inline-start: .22em; }
+.mast .name { margin-top: 6px; padding-inline-start: .22em; }
+.mast .open, .mast .close { position: absolute; color: var(--link); font-size: 31px; line-height: 1; letter-spacing: 0; }
+.mast .open { left: 0; top: 0; }
+.mast .close { right: 0; bottom: 0; }
+.signal { display: block; width: 226px; max-width: 100%; height: auto; margin: 3px auto 5px; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 0;
+  padding: 1px 0;
+  font: 16px/1.3 var(--dot);
+}
+nav a { padding: 0 11px; }
+nav a + a { border-left: 1px solid #65414a; }
+.mast button { margin-top: 9px; font-size: 14px; }
+.mast button::before { content: "[ "; text-decoration: none; }
+.mast button::after { content: " ]"; text-decoration: none; }
+
+.journal, footer { width: min(calc(100% - 52px), 730px); margin-inline: auto; }
+.journal { margin-top: 24px; }
+.journal h2, footer h2 {
+  margin: 0 0 9px;
+  color: var(--gold);
+  font: 23px/1.25 var(--dot);
+}
+.contacts, .under-note { font-size: 15px; color: var(--muted); }
+hr {
+  border: 0;
+  border-top: 1px dashed #6d414e;
+  margin: 17px 0;
+}
+.city {
+  width: min(100%, 650px);
+  margin: 20px auto 29px;
+}
+.street {
+  background: #0c090e;
+  position: relative;
+  overflow: hidden;
+}
+.street > img {
+  display: block;
+  width: 100%;
+  height: clamp(134px, 30vw, 235px);
+  object-fit: cover;
+  object-position: center 52%;
+  image-rendering: auto;
+  filter: sepia(.56) hue-rotate(310deg) saturate(.82) contrast(1.14);
+}
+.street::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, #09040c6e 0 1px, transparent 1px 3px);
+}
+.crosswalk { width: 100%; overflow: hidden; background: #15101a; }
+.crosswalk img { display: block; width: 100%; height: auto; min-width: 400px; filter: sepia(.72) hue-rotate(295deg) saturate(.65); }
+.city[data-light="off"] .street > img, .city[data-light="off"] .crosswalk img { filter: brightness(.36) grayscale(.5); }
+figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 14px; margin-top: 5px; font-size: 14px; }
+
+.projects { margin: 0; }
+.projects div { margin-bottom: 8px; }
+.projects dt { color: var(--link); font-weight: bold; }
+.projects dd { margin: 0 0 0 17px; }
+.projects div:target dt { color: var(--gold); }
+footer {
+  border-top: 1px dashed #6d414e;
+  margin-top: 23px;
+  padding: 16px 0 21px;
+  color: var(--muted);
+  font-size: 14px;
+}
+footer h2 { font-size: 19px; }
+.badge img { vertical-align: middle; }
+footer .credit { font-size: 12px; }
+@media (max-width: 580px) {
+  body::before {
+    background-image:
+      linear-gradient(90deg, #0504055e, var(--black) 8% 92%, #0504055e),
+      repeating-linear-gradient(0deg, #1b0710 0 1px, #220e16 1px 2px, #09070d 2px 3px, #121220 3px 4px);
+  }
+  .mast, .journal, footer { width: calc(100% - 32px); }
+  .mast { padding-top: 20px; }
+  .mast h1 { width: min(302px, 100%); font-size: 20px; }
+  .mast h1 [lang="ja"] { font-size: 35px; }
+  .signal { width: 190px; }
+  nav a { padding-inline: 8px; }
+}

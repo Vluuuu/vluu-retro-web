@@ -1,0 +1,149 @@
+html { color-scheme: dark; background: #49302b url("../assets/radio-walnut.png") repeat; image-rendering: pixelated; }
+body { margin: 0; color: #ebd7bb; font: 13px/1.5 Verdana, Tahoma, sans-serif; }
+a { color: #bdddd2; }
+a:hover { color: #ffe2a0; }
+.station { width: min(900px, calc(100% - 26px)); margin: 17px auto; padding: 8px; border: 5px ridge #77584c; background: #262326; box-shadow: 6px 6px #251719; }
+.masthead { display: flex; gap: 11px; align-items: center; padding: 8px 11px; border: 2px ridge #8e7964; background: #342d2e; }
+.masthead > img { width: 45px; height: 45px; }
+h1 { margin: 0; color: #ffe2a0; font: clamp(15px, 4.4vw, 28px)/1.4 var(--pixel); text-shadow: 2px 2px #593934; }
+.masthead p { margin: 1px 0 0; color: #d2ba96; font: 11px/1.5 "Courier New",monospace; }
+.dial-decoration { margin-left: auto; display: flex; align-items: center; gap: 5px; }
+.dial-decoration img { margin-right: 2px; }
+.dial-decoration i { width: 9px; height: 9px; border-radius: 50%; border: 1px inset #b1a59b; background: #a97455; animation: diodes 2.8s steps(2) infinite; }
+.dial-decoration i:nth-child(2) { animation-delay: -.7s; background: #718c7b; }
+.dial-decoration i:nth-child(3) { animation-delay: -1.4s; background: #a1728d; }
+@keyframes diodes { 50% { filter: brightness(1.7); } }
+nav { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; padding: 6px 4px; font: 12px/1.3 "Courier New",monospace; }
+nav button { margin-left: auto; }
+button {
+  border: 2px solid;
+  border-color: #9d8b72 #211a19 #171412 #796b5c;
+  padding: 4px 7px;
+  background: #403631;
+  box-shadow: inset 0 1px #615247,0 2px #191411;
+  color: #f4e2c2;
+}
+button:hover { background: #53443a; color: #fff1cd; }
+button:is(:active,[aria-pressed="true"]) {
+  border-color: #211a19 #796b5c #9d8b72 #211a19;
+  box-shadow: inset 0 2px #231b18;
+  background: #352c28;
+}
+nav button { font: bold 10px/1.25 "Courier New",monospace; text-transform: uppercase; letter-spacing: .035em; }
+.receiver { position: relative; padding: 10px 12px 8px; border: 4px ridge #ddc7a2; background: #baae98 url("../assets/radio-steel.png"); }
+.screw { position: absolute; top: 5px; width: 10px; height: 10px; border: 1px solid #665b49; border-radius: 50%; background: linear-gradient(135deg,#e2d4b6 42%,#665d50 44% 55%,#9f947f 57%); }
+.screw-left { left: 5px; }
+.screw-right { right: 5px; }
+h2 { margin: 0 0 7px; color: #f1c280; font: 11px/1.5 var(--pixel); text-transform: uppercase; }
+.receiver h2 { margin-left: 9px; color: #382e28; text-shadow: 1px 1px #dec9a4; }
+.receiver-grid { display: grid; grid-template-columns: minmax(0,1fr) 141px; gap: 9px; }
+.tuner { min-width: 0; padding: 8px; border: 3px inset #998f7f; background: #242322; }
+.readout { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 3px; background: #202b23; border: 2px inset #7b7965; padding: 6px; color: #ffe097; font-family: "Courier New",monospace; }
+.freq { font: clamp(19px,5vw,33px)/1.5 var(--pixel); }
+.unit { font-size: 12px; }
+.readout [role="status"] { font-size: 11px; }
+.scale { position: relative; display: flex; justify-content: space-between; margin-top: 5px; height: 29px; background: repeating-linear-gradient(90deg,#aea787 0 1px,transparent 1px 5%) 0 14px/100% 7px no-repeat; color: #d1c3ad; font: 10px/1 "Courier New",monospace; }
+.scale i { position: absolute; top: 9px; height: 16px; width: 2px; left: 5%; background: #f5b069; box-shadow: 0 0 6px #eb985c; transition: left .3s steps(12); }
+[data-channel="desk"] .scale i { left: 43%; }
+[data-channel="night"] .scale i { left: 84%; }
+.meter { display: flex; align-items: end; gap: 3px; height: 33px; padding: 2px 2px 4px; border: 1px solid #615267; overflow: hidden; background: #171b2e; }
+.meter i { flex: 1; height: 100%; min-width: 1px; transform: scaleY(.1); transform-origin: bottom; background: repeating-linear-gradient(0deg,#c0b279 0 2px,transparent 2px 3px); }
+[data-signal="playing"] .meter:not(.live-meter) i { animation: meter .92s steps(8) infinite alternate; }
+[data-motion="on"][data-signal="playing"] .live-meter i { transform: scaleY(var(--level, .1)); }
+.meter i:nth-child(2n) { animation-delay: -.65s; }
+.meter i:nth-child(3n) { animation-delay: -.42s; animation-duration: .63s; }
+.meter i:nth-child(5n) { animation-delay: -.25s; animation-duration: .76s; }
+.meter i:nth-child(n+14) { filter: hue-rotate(-29deg); }
+@keyframes meter { 0% { transform: scaleY(.19); } 36% { transform: scaleY(.85); } 65% { transform: scaleY(.36); } 100% { transform: scaleY(.98); } }
+.transport { margin-top: 6px; }
+.transport audio { display: block; max-width: 100%; }
+.custom-transport { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font: 12px/1.2 "Courier New",monospace; }
+.volume { display: inline-flex; align-items: center; gap: 5px; max-width: 100%; }
+.custom-transport button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 64px;
+  min-height: 26px;
+  border-color: #e6d4a6 #483c31 #33291f #a48e6f;
+  background: #b39c77;
+  box-shadow: inset 0 1px #e4cca4,inset 0 -3px #887356,0 2px #120f0f;
+  color: #2c2219;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.custom-transport button:hover { background: #c4ad83; color: #2c2219; }
+.custom-transport button:active,[data-signal="playing"] #play { border-color: #443426 #9d845e #c2a97c #4e3929; background: #836744; color: #fff1c8; box-shadow: inset 0 2px #4b3828; }
+.transport-icon { width: 8px; height: 8px; background: currentColor; }
+#play .transport-icon { clip-path: polygon(0 0,100% 50%,0 100%); }
+[data-signal="playing"] #play .transport-icon { clip-path: none; background: linear-gradient(90deg,currentColor 0 37%,transparent 37% 63%,currentColor 63%); }
+.custom-transport input { appearance: none; width: min(105px,40vw); min-width: 0; height: 23px; margin: 0; background: transparent; cursor: pointer; }
+.custom-transport input::-webkit-slider-runnable-track { height: 6px; border: 1px inset #9d8969; background: #171512; }
+.custom-transport input::-moz-range-track { height: 6px; border: 1px inset #9d8969; background: #171512; }
+.custom-transport input::-webkit-slider-thumb { appearance: none; width: 13px; height: 18px; margin-top: -7px; border: 2px outset #b49a74; border-radius: 0; background: repeating-linear-gradient(90deg,#9f815e 0 2px,#c2a477 2px 4px); }
+.custom-transport input::-moz-range-thumb { width: 11px; height: 16px; border: 2px outset #b49a74; border-radius: 0; background: repeating-linear-gradient(90deg,#9f815e 0 2px,#c2a477 2px 4px); }
+.speaker { display: grid; align-content: space-between; justify-items: center; gap: 3px; padding: 5px; border: 3px inset #9a8b76; background: #37312d; }
+.speaker-grille { aspect-ratio: 1; width: 100%; max-width: 79px; border-radius: 50%; border: 4px ridge #a89070; background: radial-gradient(#9a8268 1px,transparent 1.5px) 0 0/4px 4px #2f2826; }
+[data-signal="playing"] .speaker-grille { animation: speaker-shift 1s steps(5) infinite; }
+@keyframes speaker-shift { 50% { box-shadow: inset 0 0 9px #cb995c84; } }
+.speaker .cassette { display: block; max-width: 100%; height: auto; }
+.speaker .on-air { display: block; opacity: .5; max-width: 100%; height: auto; }
+[data-signal="playing"] .speaker .on-air { opacity: 1; }
+.presets { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px; margin-top: 8px; padding: 3px 4px 4px; border: 2px inset #a69479; background: #211c19; font: bold 11px/1.2 "Courier New",monospace; }
+.presets button { position: relative; display: flex; align-items: center; gap: 5px; min-height: 34px; padding-right: 17px; text-align: left; background: #493b32; box-shadow: inset 0 2px #6b5747,inset 0 -4px #322721,0 2px #110d0b; text-transform: uppercase; }
+.presets button::after { content: ""; position: absolute; top: 5px; right: 5px; width: 7px; height: 4px; background: #271f1b; border: 1px inset #917859; }
+.presets button span { flex: 0 0 auto; padding: 1px 3px; border: 1px inset #ad9771; background: #28221f; color: #f4dfb5; }
+.presets button[aria-pressed="true"] { color: #fff2bd; background: #65523b; box-shadow: inset 0 3px #403024; }
+.presets button[aria-pressed="true"] span { background: #d9ae68; color: #281f1a; border-color: #f0d696; }
+.presets button[aria-pressed="true"]::after { background: #e5ac55; border-color: #f8d593; box-shadow: 0 0 3px #d4a355; }
+.harbor { position: relative; overflow: hidden; container-type: inline-size; aspect-ratio: 448 / 132; margin: 8px 0; border: 3px inset #8c7989; background: #17172c url("../assets/radio-night.png") center/100% 100%; image-rendering: pixelated; }
+.sky-grain { position: absolute; inset: 0; background: radial-gradient(circle,#decaba 1px,transparent 1px) 12px 11px/83px 61px; opacity: .22; animation: sky .9s steps(4) infinite alternate; }
+@keyframes sky { to { opacity: .06; } }
+.lighthouse { position: absolute; top: 25%; left: 38%; width: 53%; height: 36%; clip-path: polygon(100% 10%,0 21%,0 77%,100% 14%); background: linear-gradient(90deg,transparent,#e4ad694d,#ffc985aa); transform-origin: right 12%; animation: sweep 8s ease-in-out infinite alternate; }
+@keyframes sweep { 0% { transform: rotate(7deg) scaleX(.38); opacity: .24; } 100% { transform: rotate(-4deg) scaleX(1); opacity: .78; } }
+.route { position: absolute; top: 60%; width: 100%; transform: translateX(40%); animation: crossing 26s linear -12s infinite; }
+.route i { display: block; width: 8.482%; aspect-ratio: 38 / 26; background: url("../../assets/boat-sheet.png") 0 0/800% 100%; image-rendering: pixelated; filter: brightness(.67) saturate(.78); animation: bob 2.1s steps(8) infinite; }
+@keyframes crossing { from { transform: translateX(-10%); } to { transform: translateX(105%); } }
+@keyframes bob { to { background-position-x: 114.286%; } }
+.harbor figcaption { position: absolute; right: 3px; bottom: 2px; padding: 1px 4px; color: #f1cca3; background: #181828bf; font: 10px/1.4 "Courier New",monospace; }
+.notes-grid { display: grid; grid-template-columns: minmax(0,1fr) 210px; gap: 8px; align-items: start; }
+.archive { padding: 7px 9px 9px; color: #392b28; background: #c6a57b url("../assets/zine-paper.png") repeat; border: 3px double #ad8e6e; }
+.archive > h2 { color: #623c34; border-bottom: 1px dashed #a68060; padding-bottom: 5px; }
+.broadcast-log { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; border-block: 1px solid #ab825e; background: #e9d4aa; }
+.broadcast-log section { min-width: 0; padding: 4px; }
+.broadcast-log section + section { border-left: 1px solid #ab825e; }
+.broadcast-log h3 { margin: 0 0 3px; padding: 2px 3px; background: #74473a; color: #ffe5b3; font: bold 12px/1.25 "Courier New",monospace; letter-spacing: .12em; }
+.broadcast-log details { margin: 0; border-bottom: 1px dotted #a4835f; }
+.broadcast-log summary { padding: 4px 2px; color: #3b3129; font: bold 12px/1.4 "Courier New", monospace; }
+.broadcast-log summary::marker { color: #854f3d; }
+.broadcast-log summary span { color: #724d3a; margin-right: 3px; font-weight: normal; }
+.broadcast-log details[open] summary { background: #c4aa7d; }
+.broadcast-log p { padding: 4px 2px; margin: 0; font-size: 12px; }
+.broadcast-log :focus-visible { outline-color: #6a4138; }
+.operator { padding: 9px; background: #3a2c29 url("../assets/radio-walnut.png"); border: 2px ridge #8c6a50; }
+.operator p { margin: 0 0 8px; }
+.operator summary { color: #d2dfc8; text-decoration: underline; }
+.outside { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; font: 11px/1.3 "Courier New",monospace; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 4px; padding: 6px 0 0; font: 11px/1.3 "Courier New",monospace; }
+footer img { display: block; }
+@media (max-width: 625px) {
+  .station { width: calc(100% - 14px); margin: 8px auto; padding: 4px; }
+  .masthead { padding: 6px; gap: 5px; }
+  .masthead > img { width: 34px; height: 34px; }
+  .dial-decoration { gap: 3px; }
+  .dial-decoration img { display: none; }
+  .dial-decoration i { width: 6px; height: 6px; }
+  nav { gap: 4px 7px; font-size: 11px; }
+  nav button { margin-left: 0; min-height: 44px; }
+  .receiver { padding: 6px 5px 5px; }
+  .receiver-grid { grid-template-columns: minmax(0,1fr) 58px; gap: 4px; }
+  .tuner { padding: 4px; }
+  .speaker { padding: 3px; }
+  .presets { font-size: 10px; gap: 3px; }
+  .presets button { padding-inline: 3px 8px; gap: 3px; }
+  .presets button::after { top: 3px; right: 3px; width: 5px; }
+  .presets button,.custom-transport :is(button,input),.broadcast-log summary { min-height: 44px; }
+  .broadcast-log summary { align-content: center; }
+  .notes-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../assets/press-start-2p.woff2") format("woff2");
+  font-display: swap;
+}
+:root { --pixel: "Press Start 2P", monospace; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+img { image-rendering: pixelated; }
+button, input, textarea { font: inherit; }
+button, summary { cursor: pointer; }
+a { text-underline-offset: 2px; }
+:focus-visible { outline: 2px dashed currentColor; outline-offset: 3px; }
+.skip { position: absolute; top: 5px; left: 5px; z-index: 10; padding: 7px; background: white; color: #111; transform: translateY(-150%); }
+.skip:focus { transform: translateY(0); }
+[data-motion="off"] *, [data-motion="off"] *::before, [data-motion="off"] *::after {
+  animation-play-state: paused !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0s !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="on"]) *, :root:not([data-motion="on"]) *::before, :root:not([data-motion="on"]) *::after {
+    animation-play-state: paused !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+  }
+}

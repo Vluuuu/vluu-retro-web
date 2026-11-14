@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id" data-motion="off">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070507">
+  <meta name="description" content="Jurnal dan arsip Dewo Adjie Fadhillah, alias VLUU, dengan foto Shibuya tahun 2007.">
+  <title>⌈ VLUU / Shibuya ⌋</title>
+  <link rel="icon" href="../assets/shibuya-signal.png">
+  <link rel="stylesheet" href="../profile.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../../edisi/motion.js" defer></script>
+  <script src="./shibuya.js" defer></script>
+</head>
+<body id="atas">
+  <a class="skip" href="#profil">Lewati ke profil</a>
+  <header class="mast">
+    <h1><span class="open" aria-hidden="true">⌈</span><span lang="ja">渋谷</span><span class="name">VLUU / SHIBUYA</span><span class="close" aria-hidden="true">⌋</span></h1>
+    <img class="signal" src="../assets/shibuya-signal.png" data-gif="../assets/shibuya-signal.gif" width="226" height="98" alt="">
+    <nav aria-label="Menu utama">
+      <a href="#profil">Profil</a>
+      <a href="#catatan">Jurnal</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#foto-shibuya">Foto</a>
+      <a href="#tautan">Tautan</a>
+      <a href="../shinjuku/">Shinjuku ↗</a>
+    </nav>
+    <button type="button" data-motion-toggle hidden>Jeda animasi</button>
+  </header>
+
+  <main class="journal">
+    <section id="profil">
+      <h2>Tentang aku</h2>
+      <p>Halo, aku <strong>Dewo Adjie Fadhillah</strong>, atau <strong>VLUU</strong> di internet. Aku tinggal di Malang.</p>
+      <p>Aku bikin aplikasi web, desain di Figma, dan sesekali ngerjain hardware. Pulau Gobi jadi tempatku nyoba cerita dan animasi 3D.</p>
+      <p class="contacts"><a href="https://github.com/Vluuuu">GitHub</a> <span aria-hidden="true">/</span> <a href="https://www.instagram.com/dewhoaf/">Instagram</a></p>
+    </section>
+
+    <hr>
+    <article id="catatan">
+      <h2>Kenapa pulau perlu arsip?</h2>
+      <p>Setiap episode meninggalkan sesuatu. Kalau lampu jalan sudah terpasang, adegan berikutnya harus dimulai dari pulau yang punya lampu itu.</p>
+      <p class="under-note"><a href="#gobi">↳ Pulau Gobi</a></p>
+    </article>
+
+    <figure id="foto-shibuya" class="city">
+      <div class="street">
+        <img src="../assets/shibuya-panorama.webp" width="650" height="390" alt="Papan iklan menyala di sekitar penyeberangan Shibuya pada malam hari, 2007">
+        <div class="crosswalk" aria-hidden="true"><img src="../assets/shibuya-zebra.png" data-gif="../assets/shibuya-zebra.gif" width="512" height="36" alt=""></div>
+      </div>
+      <figcaption>
+        <a href="https://commons.wikimedia.org/wiki/File:Shibuya_at_night.jpg">Shibuya / 2007</a>
+        <button type="button" id="sign-lights" aria-pressed="true" aria-controls="foto-shibuya" hidden>Redupkan foto</button>
+      </figcaption>
+    </figure>
+
+    <section id="proyek">
+      <h2>Arsip proyek</h2>
+      <dl class="projects">
+        <div id="gobi"><dt>Pulau Gobi</dt><dd>Serial 3D low-poly dengan dunia yang berubah tiap episode.</dd></div>
+        <div><dt>KALARYA</dt><dd>Ruang kerja buat tugas dan proyek bareng.</dd></div>
+        <div><dt>Karaga</dt><dd>Desain dashboard dan splash screen aplikasi pencatatan keuangan.</dd></div>
+        <div><dt>PisGo</dt><dd>AI untuk menilai kematangan pisang Cavendish.</dd></div>
+        <div><dt>JedaIn</dt><dd>Proyek wisata wellness, Juara Harapan 1 HOLOGY 9.0.</dd></div>
+        <div><dt>Smart Door Lock</dt><dd>Kunci ESP32 dengan akses manual.</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer id="tautan">
+    <h2>Tautan</h2>
+    <p><a href="https://fauux.neocities.org/">Fauux</a> <span aria-hidden="true">/</span> <a href="https://cinni.net/">Cinni</a> <span aria-hidden="true">/</span> <a href="https://dimden.dev/">Dimden</a> <span aria-hidden="true">/</span> <a href="https://neocities.org/browse">Neocities</a></p>
+    <p class="badge"><a href="../assets/shibuya-link.gif" download><img src="../assets/shibuya-link.png" data-gif="../assets/shibuya-link.gif" width="88" height="31" alt="Unduh button VLUU Shibuya"></a></p>
+    <p><a href="../">Tokyo Web</a> <span aria-hidden="true">/</span> <a href="../../edisi/">Edisi VLUU</a> <span aria-hidden="true">/</span> <a href="#atas">Ke atas ↑</a></p>
+    <p class="credit">Foto oleh <a href="https://commons.wikimedia.org/wiki/File:Shibuya_at_night.jpg">Thomas CUELHO</a> · <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a> · potongan, warna disesuaikan</p>
+  </footer>
+</body>
+</html>

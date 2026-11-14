@@ -1,0 +1,141 @@
+html {
+  --shell: #c0c0c0;
+  --raised: #fff #202020 #202020 #fff;
+  --sunken: #808080 #fff #fff #808080;
+  --selection: #000080;
+  background: #174957;
+}
+body { margin: 0; color: #161616; font: 13px/1.4 Tahoma, "MS Sans Serif", Verdana, sans-serif; }
+button { color: #161616; }
+.desktop {
+  position: relative;
+  min-height: calc(100vh - 40px);
+  height: max(735px, calc(100vh - 40px));
+  overflow: hidden;
+  isolation: isolate;
+  background: #194b58 url("../assets/desktop-wallpaper.png") center / cover no-repeat;
+  image-rendering: pixelated;
+}
+.desktop.wallpaper-pattern { background: #104d54 url("../../assets/pesisir-tile.png") repeat; }
+.wallpaper { position: absolute; inset: 0; z-index: -1; }
+.sky-track { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.sky-track span { position: absolute; top: 13%; left: 0; width: 19%; height: 4%; background: #92b19a; opacity: .38; clip-path: polygon(0 65%,12% 50%,23% 50%,34% 30%,49% 25%,59% 45%,77% 45%,93% 62%,100% 72%,76% 85%,16% 83%); animation: desk-cloud 44s linear -27s infinite; }
+@keyframes desk-cloud { from { transform: translateX(-110%); } to { transform: translateX(550%); } }
+.wallpaper i { position: absolute; width: 4px; height: 4px; color: #b9c4e7; background: currentColor; box-shadow: 0 -3px #7e9bcb, 0 3px #7e9bcb, -3px 0 #7e9bcb, 3px 0 #7e9bcb; animation: twinkle 4s steps(3) infinite; }
+.wallpaper i:nth-child(1) { left: 18%; top: 8%; }
+.wallpaper i:nth-child(2) { left: 81%; top: 18%; animation-delay: -1s; }
+.wallpaper i:nth-child(3) { left: 55%; top: 83%; animation-delay: -2s; }
+.wallpaper i:nth-child(4) { left: 91%; top: 69%; }
+.wallpaper i:nth-child(5) { left: 31%; top: 75%; animation-delay: -2s; }
+.wallpaper i:nth-child(6) { left: 66%; top: 9%; animation-delay: -3s; }
+@keyframes twinkle { 0%,100% { opacity: .35; } 45% { opacity: 1; } }
+.icons { position: absolute; top: 15px; left: 12px; display: grid; gap: 9px; width: 86px; }
+.icons button { display: grid; justify-items: center; gap: 4px; border: 1px solid transparent; background: none; color: #fffbe7; font-size: 11px; text-shadow: 1px 1px #10172e; padding: 5px 0; }
+.icons button img { width: 35px; height: 35px; }
+.icons button:is(:hover,:focus-visible) { border: 1px dotted #f2e6ad; background: #0d2c5c91; }
+.window { position: absolute; background: var(--shell); border: 2px solid; border-color: var(--raised); padding: 2px; box-shadow: inset 1px 1px #dfdfdf,inset -1px -1px #808080,3px 3px #162b33ae; }
+.titlebar { display: flex; justify-content: space-between; align-items: center; gap: 4px; padding: 3px 4px; background: linear-gradient(90deg,#4c5659,#677274); color: white; touch-action: none; cursor: move; }
+.active-window .titlebar { background: linear-gradient(90deg,#000080,#246e99); }
+.titlebar h1,.titlebar h2 { margin: 0; font-size: 12px; line-height: 1.2; }
+.titlebar button,.taskbar button,.start-menu summary,.explorer-toolbar button,.menu-bar button {
+  border: 0;
+  background: var(--shell);
+  box-shadow: inset -1px -1px #101010,inset 1px 1px #fff,inset -2px -2px #808080,inset 2px 2px #dfdfdf;
+  line-height: 1.15;
+}
+:is(.titlebar button,.taskbar button,.start-menu summary,.explorer-toolbar button,.menu-bar button):active,
+.start-menu[open] summary,:is(.explorer-toolbar,.menu-bar,.tasks) button[aria-pressed="true"] {
+  box-shadow: inset 1px 1px #202020,inset -1px -1px #fff,inset 2px 2px #808080,inset -2px -2px #dfdfdf;
+  background: #d0d0d0;
+}
+:is(.explorer-toolbar,.tasks) button[aria-pressed="true"] { background: repeating-conic-gradient(#dedede 0 25%,#c0c0c0 0 50%) 0 0/2px 2px; }
+.titlebar button { display: grid; place-items: center; min-width: 20px; min-height: 18px; font: bold 14px/1 Tahoma,sans-serif; padding: 0; }
+:is(.titlebar button,.taskbar button,.start-menu summary,.explorer-toolbar button,.menu-bar button):focus-visible {
+  outline: 1px dotted #151515;
+  outline-offset: -4px;
+}
+.welcome { top: 57px; left: max(108px, calc(50% - 360px)); width: min(515px, 62%); z-index: 3; }
+.menu-bar { display: flex; flex-wrap: wrap; gap: 3px; padding: 4px; border-bottom: 1px solid #808080; box-shadow: 0 1px #fff; }
+.menu-bar button,.tasks button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+.menu-bar button { padding: 4px 7px; font-size: 11px; }
+.tasks button { min-width: 69px; }
+.window-content { display: grid; grid-template-columns: minmax(0,1fr) 155px; border: 2px solid; border-color: var(--sunken); background: #f4f4eb; }
+.welcome-copy { padding: 11px; }
+.welcome-copy h2 { margin: 0 0 7px; color: #33387c; font: 14px/1.6 var(--pixel); }
+.welcome-copy p { margin: 0 0 8px; }
+.welcome-copy p:last-child { margin: 0; }
+.welcome-copy a { color: #333b87; }
+.desktop-art { position: relative; overflow: hidden; min-height: 155px; border-left: 1px solid #373a6a; background: #17495b; }
+.orbit { position: absolute; width: 142px; height: 47px; top: 42%; left: 6px; border: 2px dotted #89cdcb; border-radius: 50%; transform: rotate(-29deg); }
+.floating-pc { position: absolute; width: 84px; height: 84px; top: 24%; left: 22%; animation: float 3.5s steps(12) infinite; }
+.boot-star { color: #ffe79a; position: absolute; right: 16px; top: 18px; font-size: 25px; animation: twinkle 2.6s steps(4) infinite; }
+.desk-floppy { position: absolute; right: 0; bottom: 0; }
+@keyframes float { 0%,100% { transform: translateY(3px); } 50% { transform: translateY(-7px); } }
+.status { display: flex; align-items: center; gap: 9px; padding: 5px 4px 2px; font-size: 11px; }
+.status a { color: #333b87; }
+.system-gif { margin-left: auto; }
+.files { left: max(190px, calc(50% + 35px)); top: 344px; width: min(480px,43%); z-index: 2; }
+.location { display: flex; gap: 6px; padding: 5px; align-items: baseline; font-size: 11px; }
+.location span { flex: 1; border: 2px solid; border-color: var(--sunken); background: #fff; padding: 2px 4px; }
+.file-list { min-height: 136px; max-height: 280px; overflow: auto; padding: 4px 8px; background: #fffef3; border: 2px inset #dddccd; }
+.file-list details { padding: 3px 0; }
+.file-list summary { color: #242a73; text-decoration: underline; }
+.file-list p { margin: 3px 0 3px 13px; }
+.explorer-toolbar { display: flex; align-items: center; gap: 3px; padding: 3px 4px 5px; border-top: 1px solid #fff; }
+.explorer-toolbar button { display: inline-flex; align-items: center; gap: 5px; padding: 3px 6px; font-size: 11px; }
+.view-icon { position: relative; display: inline-block; width: 12px; height: 10px; border: 1px solid #555; background: #f2f2f2; }
+.view-icon::after { content: ""; position: absolute; inset: 2px; background: repeating-linear-gradient(0deg,#000080 0 1px,transparent 1px 3px); }
+[data-view="icons"] .view-icon::after { background: repeating-linear-gradient(90deg,#000080 0 2px,transparent 2px 4px); }
+.explorer { display: grid; grid-template-columns: minmax(0,1fr) minmax(120px, .7fr); min-height: 160px; border: 2px solid; border-color: var(--sunken); background: #fff; }
+.file-icons { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-content: start; gap: 4px 1px; padding: 4px; }
+.file-icons button { display: grid; justify-items: center; align-content: start; min-width: 0; gap: 2px; background: transparent; border: 1px solid transparent; padding: 4px 1px; font-size: 10px; line-height: 1.2; }
+.file-icons button span { padding: 1px 2px; }
+.file-icons button:hover span { text-decoration: underline; }
+.file-icons button[aria-pressed="true"] span { background: var(--selection); color: #fff; outline: 1px dotted #e5e5e5; outline-offset: -2px; }
+.explorer[data-view="list"] .file-icons { grid-template-columns: 1fr; gap: 1px; }
+.explorer[data-view="list"] .file-icons button { display: flex; align-items: center; text-align: left; padding: 1px 3px; }
+.explorer[data-view="list"] .file-icons img { width: 17px; height: 17px; }
+.file-preview { padding: 7px 6px; border-left: 3px double #888; background: #e9eef3; font-size: 11px; }
+.file-preview img { display: block; margin-bottom: 5px; padding: 2px; background: #fff; border: 1px solid #808080; }
+.file-preview strong { color: #2e3474; }
+.file-preview p { margin: 3px 0 0; }
+.explorer-status { border: 1px inset #eae9db; margin-top: 3px; padding: 1px 4px; font-size: 10px; }
+.notes { left: max(104px, calc(50% - 320px)); top: 384px; width: min(335px,43%); z-index: 1; }
+.notepad { padding: 9px; background: #fffef1; border: 2px inset #e0dfd1; font: 12px/1.4 "Courier New", monospace; }
+.notepad h3,.notepad p { margin: 0 0 7px; }
+.notepad p:last-child { margin: 0; }
+.saver { top: 135px; left: max(106px, calc(50% - 250px)); width: min(490px,65%); }
+.saver-screen { position: relative; height: 250px; overflow: hidden; background: #080c20 url("../../assets/pesisir-tile.png"); border: 2px inset #e0dfd1; container-type: size; }
+.saver-screen img { position: absolute; left: 0; top: 0; width: min(138px,45%); height: auto; animation: screensaver 8s linear infinite alternate; }
+@keyframes screensaver { 0% { transform: translate(4px,12px); } 35% { transform: translate(calc(100cqw - min(138px,45cqw)),100px); } 65% { transform: translate(9cqw,200px); } 100% { transform: translate(52cqw,24px); } }
+.taskbar { display: flex; position: sticky; bottom: 0; z-index: 999; align-items: center; gap: 7px; padding: 4px 6px; background: #c0c0c0; border-top: 2px solid #fff; min-height: 38px; font-size: 12px; }
+.taskbar button,.start-menu summary { min-height: 25px; padding: 4px 7px; }
+.tasks { display: flex; gap: 3px; flex: 1; }
+.tasks a { display: inline-grid; place-items: center; padding-inline: 5px; color: #28275a; }
+.start-menu { position: relative; }
+.start-menu summary { display: flex; gap: 4px; align-items: center; list-style: none; font-weight: bold; }
+.start-menu summary::-webkit-details-marker { display: none; }
+.start-menu div { position: absolute; left: 0; bottom: calc(100% + 5px); width: 178px; display: grid; padding: 2px 2px 2px 15px; border: 2px solid; border-color: var(--raised); background: linear-gradient(90deg,#000080 0 12px,#c0c0c0 12px); }
+.start-menu div :is(button,a) { display: flex; align-items: center; gap: 5px; text-align: left; padding: 5px; color: #181818; }
+.start-menu div button { border: 0; box-shadow: none; }
+.start-menu div :is(button,a):is(:hover,:focus-visible) { background: var(--selection); color: #fff; }
+.start-menu div a { border-top: 1px solid #808080; }
+.taskbar time { min-width: 52px; padding: 4px; text-align: center; border: 2px inset #dcdcd5; }
+@media (max-width: 690px) {
+  .desktop { display: grid; align-content: start; gap: 9px; padding: 9px; height: auto; min-height: calc(100vh - 38px); }
+  .icons { position: static; display: flex; justify-content: space-around; width: auto; gap: 3px; }
+  .icons button { width: 68px; }
+  .window { position: relative; left: auto !important; top: auto !important; width: 100%; }
+  .titlebar { cursor: auto; }
+  .window-content { grid-template-columns: minmax(0, 1fr) 88px; }
+  .floating-pc { width: 55px; height: 55px; left: 15%; top: 33%; }
+  .orbit { width: 82px; }
+  .tasks button { padding-inline: 3px; }
+  .taskbar { gap: 3px; font-size: 11px; }
+  :is(.titlebar button,.menu-bar button,.taskbar button,.start-menu summary,.start-menu div a,.explorer-toolbar button,.file-icons button) { min-height: 44px; }
+  .titlebar button { min-width: 44px; }
+  .tasks a { min-height: 44px; }
+}
+@media (max-width: 480px) {
+  .tasks button { display: none; }
+}

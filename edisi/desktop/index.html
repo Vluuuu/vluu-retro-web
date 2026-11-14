@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id" data-motion="off">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLUU 98</title>
+  <link rel="icon" href="../assets/pc-icon.png">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../motion.js" defer></script>
+  <script src="./desktop.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#welcome">Lewati ke profil</a>
+  <main class="desktop">
+    <div class="wallpaper" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="sky-track" aria-hidden="true"><span></span></div>
+    <nav class="icons" aria-label="Ikon desktop">
+      <button type="button" data-open="welcome"><img src="../assets/pc-icon.png" width="32" height="32" alt=""> Komputerku</button>
+      <button type="button" data-open="files"><img src="../assets/folder-icon.png" width="32" height="32" alt=""> Proyek</button>
+      <button type="button" data-open="notes"><img src="../assets/paper-icon.png" width="32" height="32" alt=""> Catatan</button>
+      <button type="button" data-open="saver"><img src="../assets/radio-icon.png" width="32" height="32" alt=""> Screensaver</button>
+    </nav>
+    <section class="window welcome" id="welcome" tabindex="-1" aria-labelledby="welcome-title">
+      <header class="titlebar"><h1 id="welcome-title">Selamat datang di VLUU 98</h1><button type="button" data-close aria-label="Tutup profil">×</button></header>
+      <div class="menu-bar">
+        <button type="button" data-open="files"><img src="../assets/folder-icon.png" width="16" height="16" alt=""> Buka proyek</button>
+        <button type="button" data-open="notes"><img src="../assets/paper-icon.png" width="16" height="16" alt=""> Buka catatan</button>
+        <button type="button" id="wallpaper-switch" aria-pressed="false" hidden><img src="../assets/pc-icon.png" width="16" height="16" alt=""> Ganti wallpaper</button>
+      </div>
+      <div class="window-content">
+        <div class="welcome-copy">
+          <h2>Halo, aku Dewo!</h2>
+          <p>Nama lengkapku Dewo Adjie Fadhillah. Aku tinggal di Malang dan pakai nama VLUU di internet.</p>
+          <p>Di komputer ini ada proyek web, eksperimen ESP32, dan satu pulau yang terus berubah.</p>
+          <p><a href="https://github.com/Vluuuu">GitHub</a> <span aria-hidden="true">·</span> <a href="https://www.instagram.com/dewhoaf/">Instagram</a></p>
+        </div>
+        <div class="desktop-art" aria-hidden="true">
+          <div class="orbit"></div>
+          <img class="floating-pc" src="../assets/pc-icon.png" width="32" height="32" alt="">
+          <span class="boot-star">✦</span>
+          <img class="desk-floppy" src="../assets/desktop-floppy.png" data-gif="../assets/desktop-floppy.gif" width="50" height="38" alt="">
+        </div>
+      </div>
+      <div class="status"><img src="../assets/desk-badge.png" data-gif="../assets/desk-badge.gif" width="88" height="31" alt="VLUU 98"><a href="../assets/desk-badge.gif" download>Unduh button</a><img class="system-gif" src="../assets/desktop-status.png" data-gif="../assets/desktop-status.gif" width="82" height="30" alt=""></div>
+    </section>
+    <section class="window files" id="files" tabindex="-1" aria-labelledby="files-title">
+      <header class="titlebar"><h2 id="files-title">C:\VLUU\Proyek</h2><button type="button" data-close aria-label="Tutup proyek">×</button></header>
+      <div class="location"><strong>Alamat</strong><span>C:\VLUU\PROYEK</span></div>
+      <div class="explorer-toolbar" hidden>
+        <button type="button" data-view="icons" aria-pressed="true"><span class="view-icon" aria-hidden="true"></span>Ikon</button>
+        <button type="button" data-view="list" aria-pressed="false"><span class="view-icon" aria-hidden="true"></span>Daftar</button>
+      </div>
+      <div class="file-list">
+        <details open><summary>Pulau Gobi</summary><p>Serial low-poly yang pulaunya berubah tiap episode. Adegan dibuat dengan Three.js dan Remotion.</p></details>
+        <details><summary>KALARYA</summary><p>Aplikasi untuk mengatur tugas, proyek, dan kerja bareng.</p></details>
+        <details><summary>PisGo</summary><p>AI untuk menilai kematangan pisang Cavendish dan merencanakan waktu panen.</p></details>
+        <details><summary>Karaga</summary><p>Desain dashboard dan splash screen aplikasi pencatatan keuangan.</p></details>
+        <details><summary>JedaIn</summary><p>Proyek wisata wellness. Juara Harapan 1 di HOLOGY 9.0.</p></details>
+        <details><summary>Smart Door Lock</summary><p>Eksperimen retrofit kunci ESP32 dengan kunci fisik.</p></details>
+      </div>
+      <div class="explorer" hidden>
+        <div class="file-icons" role="group" aria-label="Pilih file proyek"></div>
+        <div class="file-preview" aria-live="polite"></div>
+      </div>
+      <div class="explorer-status" hidden>6 file <span>·</span> <span id="selected-file"></span></div>
+    </section>
+    <section class="window notes" id="notes" tabindex="-1" aria-labelledby="notes-title">
+      <header class="titlebar"><h2 id="notes-title">CATATAN.TXT — Notepad</h2><button type="button" data-close aria-label="Tutup catatan">×</button></header>
+      <div class="notepad">
+        <h3>Catatan bengkel</h3>
+        <p>Di Pulau Gobi, barang yang muncul di satu episode bisa dibutuhkan lagi nanti. Keadaan pulau disimpan per episode.</p>
+        <p>Untuk kunci ESP32, silinder dan kunci manual ikut menentukan posisi aktuator.</p>
+      </div>
+    </section>
+    <section class="window saver" id="saver" tabindex="-1" aria-labelledby="saver-title" hidden>
+      <header class="titlebar"><h2 id="saver-title">Screensaver</h2><button type="button" data-close aria-label="Tutup screensaver">×</button></header>
+      <div class="saver-screen"><img src="../../assets/vluu-wordmark.png" width="184" height="43" alt="VLUU"></div>
+    </section>
+  </main>
+  <footer class="taskbar">
+    <details class="start-menu">
+      <summary><img src="../assets/pc-icon.png" width="16" height="16" alt=""> Start</summary>
+      <div>
+        <button type="button" data-open="welcome"><img src="../assets/pc-icon.png" width="20" height="20" alt=""> Komputerku</button>
+        <button type="button" data-open="files"><img src="../assets/folder-icon.png" width="20" height="20" alt=""> Proyek</button>
+        <button type="button" data-open="notes"><img src="../assets/paper-icon.png" width="20" height="20" alt=""> Catatan</button>
+        <button type="button" data-open="saver"><img src="../assets/radio-icon.png" width="20" height="20" alt=""> Screensaver</button>
+        <a href="../">Tiga edisi VLUU ↗</a>
+      </div>
+    </details>
+    <div class="tasks">
+      <button type="button" data-open="welcome"><img src="../assets/pc-icon.png" width="16" height="16" alt=""> VLUU 98</button>
+      <button type="button" data-open="files"><img src="../assets/folder-icon.png" width="16" height="16" alt=""> Proyek</button>
+      <a href="../">Edisi lain ↗</a>
+    </div>
+    <button type="button" data-motion-toggle hidden>Jeda animasi</button>
+    <time id="desk-clock" aria-label="Jam Malang"></time>
+  </footer>
+</body>
+</html>

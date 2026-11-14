@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id" data-motion="off">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Kecil Dewo</title>
+  <link rel="icon" href="../assets/paper-icon.png">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../motion.js" defer></script>
+  <script src="./zine.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#isi">Lewati ke isi</a>
+  <div class="sheet">
+    <header class="mast">
+      <span class="mast-star" aria-hidden="true">✷</span>
+      <div class="mast-copy"><p>HALAMAN PERSONAL DEWO</p><h1>web kecil<span>.</span></h1><p class="mast-subtitle">dari Malang, ditulis pakai HTML</p></div>
+      <figure class="postmark"><img src="../assets/postcard.png" data-gif="../assets/postcard.gif" width="92" height="68" alt="Kartu pos piksel dari Pulau Gobi"></figure>
+    </header>
+    <nav class="index" aria-label="Daftar isi">
+      <a href="#isi">Halo</a><a href="#proyek">Proyek</a><a href="#catatan">Catatan</a><a href="#buku-tamu">Buku tamu</a><a href="../">Edisi lain</a>
+      <button type="button" data-motion-toggle hidden>Jeda animasi</button>
+    </nav>
+    <div class="body">
+      <main id="isi">
+        <section class="letter">
+          <h2>Halo, aku Dewo!</h2>
+          <p>Nama lengkapku Dewo Adjie Fadhillah, tapi di internet aku biasa pakai <strong>VLUU</strong>. Aku tinggal di Malang dan biasa bikin aplikasi web. Kalau lagi pindah tab, bisa jadi aku lagi di Figma, nyoba ESP32, atau ngurus Pulau Gobi.</p>
+          <p>Kalau mau lihat kodeku, mampir ke <a href="https://github.com/Vluuuu">GitHub</a>. Aku juga ada di <a href="https://www.instagram.com/dewhoaf/">Instagram</a>.</p>
+          <p class="signature">– Dewo</p>
+        </section>
+        <div class="stitches" aria-hidden="true"><img src="../assets/zine-stitch.png" data-gif="../assets/zine-stitch.gif" width="96" height="24" alt=""></div>
+        <section class="clippings" id="proyek">
+          <h2>Yang lagi kuutak-atik</h2>
+          <div class="scrapbook">
+            <article class="scrap gobi"><img src="../assets/clip-gobi.png" data-gif="../assets/clip-gobi.gif" width="58" height="43" alt=""><h3>Pulau Gobi</h3><p>Serial 3D low-poly. Pulaunya ikut berubah setiap ada episode baru.</p></article>
+            <article class="scrap kalarya"><img src="../assets/clip-kalarya.png" data-gif="../assets/clip-kalarya.gif" width="58" height="43" alt=""><h3>KALARYA</h3><p>Aplikasi web buat nyatet tugas, mengatur proyek, dan kerja bareng.</p></article>
+            <article class="scrap pisgo"><img src="../assets/clip-pisgo.png" data-gif="../assets/clip-pisgo.gif" width="58" height="43" alt=""><h3>PisGo</h3><p>AI untuk menilai kematangan pisang Cavendish dan merencanakan panen.</p></article>
+            <article class="scrap karaga"><img src="../assets/clip-karaga.png" data-gif="../assets/clip-karaga.gif" width="58" height="43" alt=""><h3>Karaga</h3><p>Desain dashboard anggaran dan splash screen untuk pencatatan keuangan.</p></article>
+            <article class="scrap jedain"><img src="../assets/clip-jedain.png" data-gif="../assets/clip-jedain.gif" width="58" height="43" alt=""><h3>JedaIn</h3><p>Proyek wisata wellness. Juara Harapan 1 di HOLOGY 9.0.</p></article>
+            <article class="scrap lock"><img src="../assets/clip-lock.png" data-gif="../assets/clip-lock.gif" width="58" height="43" alt=""><h3>Smart Door Lock</h3><p>Kunci ESP32 yang tetap bisa dibuka pakai kunci fisik.</p></article>
+          </div>
+        </section>
+      </main>
+      <aside class="margin">
+        <section class="note" id="catatan">
+          <h2>Potongan catatan</h2>
+          <details open><summary>Arsip Pulau Gobi</summary><p>Lampu jalan atau lapak yang muncul di suatu episode bisa dipakai lagi. Itu sebabnya perubahan pulaunya dicatat.</p></details>
+          <details><summary>Kunci ESP32</summary><p>Silinder lama tetap dipakai. Posisi aktuator mesti memberi ruang supaya pintu masih bisa dibuka manual.</p></details>
+        </section>
+        <section class="linkwall" aria-labelledby="linkwall-heading">
+          <h2 id="linkwall-heading">Jalan-jalan</h2>
+          <a class="mini-button" href="https://neocities.org/browse"><img src="../assets/link-neocities.png" data-gif="../assets/link-neocities.gif" width="88" height="31" alt=""><span>Neocities</span></a>
+          <a class="mini-button" href="https://bootleg64.neocities.org/"><img src="../assets/link-bootleg.png" data-gif="../assets/link-bootleg.gif" width="88" height="31" alt=""><span>Bootleg64</span></a>
+          <a class="mini-button" href="https://pixelsafari.neocities.org/"><img src="../assets/link-safari.png" data-gif="../assets/link-safari.gif" width="88" height="31" alt=""><span>Pixel Safari</span></a>
+          <a class="mini-button" href="https://cinni.net/"><img src="../assets/link-cinni.png" data-gif="../assets/link-cinni.gif" width="88" height="31" alt=""><span>Cinni</span></a>
+          <a class="badge" href="../assets/zine-badge.gif" download><img src="../assets/zine-badge.png" data-gif="../assets/zine-badge.gif" width="88" height="31" alt="Unduh button Web Kecil"></a>
+        </section>
+        <a class="paperplane" href="#buku-tamu"><img src="../assets/zine-plane.png" data-gif="../assets/zine-plane.gif" width="70" height="36" alt=""> Tulis di buku tamu</a>
+      </aside>
+      <section class="guestbook" id="buku-tamu">
+        <h2>Buku tamu</h2>
+        <p>Entri tersimpan di browser ini.</p>
+        <form id="guest-form" hidden>
+          <label>Nama <input name="name" maxlength="40" required></label>
+          <label>Pesan <textarea name="message" rows="2" maxlength="300" required></textarea></label>
+          <button type="submit">Tulis di buku</button>
+        </form>
+        <p id="guest-status" role="status"></p>
+        <ul id="guest-notes"></ul>
+      </section>
+    </div>
+    <footer><img src="../assets/zine-blinkie.png" data-gif="../assets/zine-blinkie.gif" width="150" height="20" alt="Web Kecil VLUU"><a href="#isi">Kembali ke atas ↑</a></footer>
+  </div>
+</body>
+</html>
